@@ -1,0 +1,1055 @@
+Index · HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguro de RC Médica para recém-formados e residentes | Chiare &amp; Mendes</title>
+<meta name="description" content="Seguro de Responsabilidade Civil Médica para quem está começando. R$ 1.520,00 por ano com o cupom LUIZ15. Retroatividade travada desde a contratação, defesa cível e ética, sem franquia.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Proteção desde o primeiro dia do seu CRM">
+<meta property="og:description" content="Seguro de RC Médica para recém-formados e residentes, a partir de R$ 1.520,00/ano com o cupom LUIZ15.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+ 
+<!-- ⚠️ PRODUÇÃO: substituir o CDN do Tailwind por um build compilado (npx tailwindcss -o dist.css --minify).
+     O CDN emite aviso no console e prejudica o LCP. Mantido aqui para entrega em arquivo único. -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        marinho:  '#1B2A3B',
+        laranja:  '#E07B25',
+        aco:      '#3D4F5F',
+        palido:   '#8A9BB0',
+        offwhite: '#F5F4F0',
+        borda:    '#E8E6E1',
+        corpo:    '#2C2C2A',
+        caption:  '#B4AFA7'
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif']
+      },
+      maxWidth: { prosa: '62ch' }
+    }
+  }
+}
+</script>
+ 
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+ 
+  /* Foco visível e consistente em todos os elementos interativos */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, summary:focus-visible {
+    outline: 3px solid #E07B25;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+ 
+  /* Faixa hachurada = período sem cobertura na linha do tempo */
+  .hachura {
+    background-image: repeating-linear-gradient(
+      -45deg, #8A9BB0 0 6px, #A9B7C7 6px 12px
+    );
+  }
+ 
+  .campo {
+    width: 100%;
+    border: 1px solid #E8E6E1;
+    background: #fff;
+    padding: .7rem .85rem;
+    font-size: .95rem;
+    color: #2C2C2A;
+    border-radius: 6px;
+  }
+  .campo::placeholder { color: #B4AFA7; }
+  .campo:hover { border-color: #8A9BB0; }
+ 
+  .rotulo { font-size: .8rem; font-weight: 600; color: #3D4F5F; margin-bottom: .3rem; display: block; }
+ 
+  /* Acordeão do FAQ */
+  .faq-corpo { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease; }
+  .faq-corpo > div { overflow: hidden; }
+  .faq-item[data-aberto="true"] .faq-corpo { grid-template-rows: 1fr; }
+  .faq-item[data-aberto="true"] .faq-sinal { transform: rotate(45deg); }
+  .faq-sinal { transition: transform .28s ease; }
+ 
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+</head>
+ 
+<body class="font-sans text-corpo bg-white antialiased">
+ 
+<a href="#cotar" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-marinho focus:text-white focus:px-4 focus:py-2">Ir para a cotação</a>
+ 
+<!-- ══════════════════ NAV ══════════════════ -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-borda">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-6">
+ 
+    <a href="#topo" class="flex items-center gap-2.5 shrink-0">
+      <span class="w-9 h-9 grid place-items-center bg-marinho text-white font-display font-bold text-sm rounded-sm">CM</span>
+      <span class="leading-tight">
+        <span class="block font-display font-bold text-marinho text-[15px]">Chiare &amp; Mendes</span>
+        <span class="block text-[11px] text-caption">Corretora de Seguros</span>
+      </span>
+    </a>
+ 
+    <nav class="hidden lg:flex items-center gap-7 text-[14px] font-medium text-aco">
+      <a href="#linha-do-tempo" class="hover:text-laranja">Retroatividade</a>
+      <a href="#cobertura" class="hover:text-laranja">Cobertura</a>
+      <a href="#seguradoras" class="hover:text-laranja">Seguradoras</a>
+      <a href="#indicacao" class="hover:text-laranja">Indique um colega</a>
+      <a href="#faq" class="hover:text-laranja">Dúvidas</a>
+    </nav>
+ 
+    <div class="flex items-center gap-2">
+      <a href="#cotar" class="hidden sm:inline-block bg-laranja text-white text-[14px] font-semibold px-5 py-2.5 rounded-md hover:bg-[#c96a1c]">
+        Fazer minha cotação
+      </a>
+      <button id="btn-menu" class="lg:hidden w-10 h-10 grid place-items-center border border-borda rounded-md" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B2A3B" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+ 
+  <div id="menu-mobile" class="hidden lg:hidden border-t border-borda bg-white">
+    <nav class="max-w-6xl mx-auto px-5 py-3 flex flex-col text-[15px] font-medium text-aco">
+      <a href="#linha-do-tempo" class="py-2.5 border-b border-borda">Retroatividade</a>
+      <a href="#cobertura" class="py-2.5 border-b border-borda">Cobertura</a>
+      <a href="#seguradoras" class="py-2.5 border-b border-borda">Seguradoras</a>
+      <a href="#indicacao" class="py-2.5 border-b border-borda">Indique um colega</a>
+      <a href="#regras" class="py-2.5 border-b border-borda">Regras de ouro</a>
+      <a href="#faq" class="py-2.5">Dúvidas</a>
+    </nav>
+  </div>
+</header>
+ 
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="topo" class="bg-marinho text-white">
+  <div class="max-w-6xl mx-auto px-5 py-14 md:py-20 grid lg:grid-cols-[1.05fr_.95fr] gap-12 items-start">
+ 
+    <div>
+      <p class="text-palido text-[15px] mb-5">Para médicos recém-formados e residentes</p>
+ 
+      <h1 class="font-display font-black leading-[1.06] text-[2.35rem] sm:text-[3.1rem] lg:text-[3.5rem] text-white">
+        Proteção desde o primeiro dia do seu CRM.
+      </h1>
+ 
+      <p class="mt-6 text-[17px] leading-relaxed text-[#D5DDE6] max-w-prosa">
+        O seguro de Responsabilidade Civil Médica responde pela reclamação que chega
+        durante a vigência, referente aos atendimentos feitos a partir da data em que você
+        contrata. Quem começa cedo protege a carreira inteira. Quem começa tarde deixa
+        um período em aberto que não volta.
+      </p>
+ 
+      <div class="mt-8 flex flex-wrap items-end gap-x-8 gap-y-4">
+        <div>
+          <p class="text-palido text-[13px] mb-1">De R$ 1.830,00 por ano por</p>
+          <p class="font-display font-black text-laranja text-[2.6rem] leading-none">R$ 1.520,00</p>
+          <p class="text-palido text-[13px] mt-1.5">com o cupom LUIZ15 &middot; R$ 4,16 por dia</p>
+        </div>
+        <ul class="text-[14px] text-[#D5DDE6] space-y-1.5 border-l border-white/20 pl-6">
+          <li>Defesa cível e ética-profissional no CRM</li>
+          <li>Cobertura em plantão, PS e UTI</li>
+          <li>Sem vínculo com hospital ou instituição</li>
+        </ul>
+      </div>
+ 
+      <!-- Linha do tempo compacta: o argumento central em forma visual -->
+      <div class="mt-10 border border-white/15 rounded-lg p-5 bg-white/[.04]">
+        <p class="text-[13px] text-palido mb-3">O que a data de contratação decide</p>
+        <div class="flex h-8 rounded overflow-hidden">
+          <div class="hachura w-[38%] grid place-items-center">
+            <span class="text-[11px] font-semibold text-marinho px-1">sem cobertura</span>
+          </div>
+          <div class="bg-laranja flex-1 grid place-items-center">
+            <span class="text-[11px] font-semibold text-white px-1">coberto pela apólice</span>
+          </div>
+        </div>
+        <div class="flex justify-between text-[11.5px] text-palido mt-2">
+          <span>início do CRM</span><span>contratação</span><span>futuro</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ── Formulário de cotação ── -->
+    <div id="cotar" class="bg-white text-corpo rounded-xl p-6 sm:p-7 shadow-[0_18px_50px_rgba(0,0,0,.28)] scroll-mt-24">
+      <h2 class="font-display font-bold text-[1.45rem] text-marinho leading-snug">Receba sua cotação</h2>
+      <p class="text-[14px] text-aco mt-1.5 mb-5">Resposta pelo WhatsApp em até 1 dia útil.</p>
+ 
+      <form id="form-cotacao" novalidate class="space-y-4">
+ 
+        <div>
+          <label class="rotulo" for="nome">Nome completo</label>
+          <input class="campo" id="nome" name="nome" type="text" autocomplete="name" placeholder="Como consta no seu CRM" required>
+        </div>
+ 
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="rotulo" for="telefone">WhatsApp</label>
+            <input class="campo" id="telefone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(67) 99999-9999" required>
+          </div>
+          <div>
+            <label class="rotulo" for="email">E-mail</label>
+            <input class="campo" id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+          </div>
+        </div>
+ 
+        <div class="grid sm:grid-cols-[1fr_110px] gap-4">
+          <div>
+            <label class="rotulo" for="crm">CRM (se já tiver)</label>
+            <input class="campo" id="crm" name="crm" type="text" inputmode="numeric" placeholder="Número">
+          </div>
+          <div>
+            <label class="rotulo" for="uf">UF</label>
+            <select class="campo" id="uf" name="uf">
+              <option value="">—</option>
+              <option>MS</option><option>MT</option><option>SP</option><option>PR</option>
+              <option>GO</option><option>MG</option><option>RJ</option><option>SC</option>
+              <option>RS</option><option>BA</option><option>DF</option><option>Outra</option>
+            </select>
+          </div>
+        </div>
+ 
+        <div>
+          <label class="rotulo" for="especialidade">Especialidade ou área de atuação</label>
+          <select class="campo" id="especialidade" name="especialidade" required>
+            <option value="">Selecione</option>
+            <optgroup label="Em formação">
+              <option data-faixa="ref">Residente — primeiro ano</option>
+              <option data-faixa="ref">Residente — demais anos</option>
+              <option data-faixa="ref">Recém-formado, ainda sem residência</option>
+            </optgroup>
+            <optgroup label="Clínica e plantão">
+              <option data-faixa="ref">Clínica médica / clínica geral</option>
+              <option data-faixa="ref">Plantão em pronto-socorro e UTI</option>
+              <option data-faixa="ref">Medicina de família e comunidade</option>
+              <option data-faixa="ref">Pediatria</option>
+              <option data-faixa="ref">Psiquiatria</option>
+              <option data-faixa="ref">Medicina do trabalho</option>
+            </optgroup>
+            <optgroup label="Áreas com análise específica">
+              <option data-faixa="analise">Cirurgia geral e demais cirúrgicas</option>
+              <option data-faixa="analise">Ginecologia e obstetrícia</option>
+              <option data-faixa="analise">Anestesiologia</option>
+              <option data-faixa="analise">Ortopedia e traumatologia</option>
+              <option data-faixa="analise">Dermatologia com procedimentos</option>
+              <option data-faixa="analise">Cirurgia plástica e estética</option>
+              <option data-faixa="analise">Outra especialidade</option>
+            </optgroup>
+          </select>
+        </div>
+ 
+        <div>
+          <label class="rotulo" for="cupom">Cupom de desconto</label>
+          <div class="flex gap-2">
+            <input class="campo uppercase tracking-wide" id="cupom" name="cupom" type="text" placeholder="LUIZ15" autocapitalize="characters" autocomplete="off">
+            <button type="button" id="btn-cupom" class="shrink-0 border border-marinho text-marinho font-semibold text-[14px] px-4 rounded-md hover:bg-marinho hover:text-white">
+              Aplicar
+            </button>
+          </div>
+          <p id="msg-cupom" class="text-[13px] mt-2 hidden"></p>
+        </div>
+ 
+        <!-- Painel de resultado dinâmico -->
+        <div class="border border-borda rounded-lg bg-offwhite p-4" aria-live="polite">
+          <p id="linha-faixa" class="text-[13px] text-aco mb-2">Selecione a especialidade para ver o valor de referência.</p>
+          <div id="bloco-preco" class="hidden">
+            <p class="flex items-baseline gap-2.5">
+              <span id="preco-cheio" class="text-[15px] text-caption line-through hidden">R$ 1.830,00</span>
+              <span id="preco-final" class="font-display font-black text-[1.9rem] text-marinho leading-none">R$ 1.830,00</span>
+              <span class="text-[13px] text-aco">/ ano</span>
+            </p>
+            <p id="linha-economia" class="text-[13px] text-laranja font-semibold mt-1.5 hidden"></p>
+          </div>
+        </div>
+ 
+        <label class="flex gap-3 items-start text-[12.5px] text-aco leading-relaxed">
+          <input type="checkbox" id="lgpd" class="mt-0.5 w-4 h-4 accent-[#E07B25]" required>
+          <span>Autorizo a Chiare &amp; Mendes a entrar em contato sobre esta cotação, conforme a Lei 13.709/2018 (LGPD).</span>
+        </label>
+ 
+        <p id="erro-form" class="text-[13px] text-[#B3261E] font-medium hidden"></p>
+ 
+        <button type="submit" class="w-full bg-laranja text-white font-semibold text-[16px] py-3.5 rounded-md hover:bg-[#c96a1c]">
+          Enviar e falar com um especialista
+        </button>
+ 
+        <p class="text-[11.5px] text-caption leading-relaxed">
+          Valores de referência para o perfil recém-formado e residente, sujeitos a aceitação
+          e análise técnica da seguradora. Não constituem proposta.
+          <!-- ⚠️ PENDENTE DIRETORIA: informar aqui o LMG correspondente e as condições de parcelamento. -->
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ TRÊS FRENTES ══════════════════ -->
+<section class="bg-offwhite border-b border-borda">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+    <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug max-w-prosa">
+      Um único atendimento pode virar três processos ao mesmo tempo.
+    </h2>
+    <p class="mt-4 text-[16px] text-aco max-w-prosa leading-relaxed">
+      É isso que muda quando um paciente decide reclamar. Não é um problema, são três,
+      e cada um corre num lugar diferente, com prazo e consequência própria.
+    </p>
+ 
+    <div class="mt-10 grid md:grid-cols-3 gap-px bg-borda border border-borda rounded-lg overflow-hidden">
+      <div class="bg-white p-6">
+        <h3 class="font-display font-bold text-[1.2rem] text-marinho">Cível</h3>
+        <p class="text-[13px] text-caption mt-1">Justiça Comum</p>
+        <p class="text-[14.5px] text-aco mt-3 leading-relaxed">
+          Indenização em dinheiro por danos materiais, morais e estéticos, além de
+          pensão vitalícia em casos de incapacidade. É onde o patrimônio pessoal
+          fica exposto.
+        </p>
+      </div>
+      <div class="bg-white p-6">
+        <h3 class="font-display font-bold text-[1.2rem] text-marinho">Ética</h3>
+        <p class="text-[13px] text-caption mt-1">Conselho Regional de Medicina</p>
+        <p class="text-[14.5px] text-aco mt-3 leading-relaxed">
+          Sindicância e processo ético-profissional, com penas que vão de advertência
+          a suspensão e cassação do exercício. Aqui o que está em risco é o direito
+          de exercer a medicina.
+        </p>
+      </div>
+      <div class="bg-white p-6">
+        <h3 class="font-display font-bold text-[1.2rem] text-marinho">Criminal</h3>
+        <p class="text-[13px] text-caption mt-1">Justiça Criminal</p>
+        <p class="text-[14.5px] text-aco mt-3 leading-relaxed">
+          Apuração por lesão corporal culposa ou homicídio culposo. Exige defesa
+          técnica especializada desde o primeiro depoimento.
+        </p>
+      </div>
+    </div>
+ 
+    <p class="mt-6 text-[13.5px] text-caption max-w-prosa leading-relaxed">
+      Base legal do risco: Código Civil, arts. 186, 927 e 951; Código de Defesa do
+      Consumidor, art. 14, § 4º, que fixa a responsabilidade do profissional liberal
+      como subjetiva — ou seja, depende de prova de culpa, e é por isso que prontuário
+      e defesa técnica pesam tanto.
+    </p>
+  </div>
+</section>
+ 
+<!-- ══════════════════ LINHA DO TEMPO INTERATIVA ══════════════════ -->
+<section id="linha-do-tempo" class="bg-white scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+ 
+    <div class="max-w-prosa">
+      <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug">
+        Adiar não deixa o seguro mais barato. Deixa a sua carreira mais descoberta.
+      </h2>
+      <p class="mt-4 text-[16px] text-aco leading-relaxed">
+        O RC Médico funciona à base de reclamações. A apólice responde pela reclamação
+        recebida durante a vigência, desde que o atendimento tenha ocorrido depois da
+        data de retroatividade. Contratar hoje trava essa data hoje. Todo atendimento
+        anterior fica permanentemente fora — e o paciente ainda tem anos para acionar.
+      </p>
+    </div>
+ 
+    <div class="mt-10 border border-borda rounded-xl overflow-hidden">
+      <div class="bg-offwhite border-b border-borda px-5 sm:px-7 py-5 flex flex-wrap items-end gap-4">
+        <div>
+          <label class="rotulo" for="ano-crm">Você se formou ou obteve o CRM em</label>
+          <select class="campo max-w-[190px]" id="ano-crm"></select>
+        </div>
+        <p class="text-[13px] text-aco pb-2.5">Veja o que ficaria de fora se contratar só hoje.</p>
+      </div>
+ 
+      <div class="px-5 sm:px-7 py-8">
+        <div class="flex h-14 rounded-md overflow-hidden border border-borda" role="img" id="barra-descricao" aria-label="Linha do tempo de cobertura">
+          <div id="faixa-descoberta" class="hachura grid place-items-center transition-all duration-300" style="width:30%">
+            <span class="text-[11.5px] font-semibold text-marinho px-1 text-center leading-tight">sem cobertura</span>
+          </div>
+          <div id="faixa-coberta" class="bg-laranja grid place-items-center transition-all duration-300 flex-1">
+            <span class="text-[11.5px] font-semibold text-white px-1 text-center leading-tight">coberto a partir da contratação</span>
+          </div>
+        </div>
+        <div class="flex justify-between text-[12px] text-caption mt-2">
+          <span id="rot-inicio">2020</span>
+          <span id="rot-hoje">hoje</span>
+          <span id="rot-fim">+10 anos</span>
+        </div>
+ 
+        <p id="texto-gap" class="mt-6 text-[16px] text-marinho font-medium leading-relaxed max-w-prosa" aria-live="polite"></p>
+        <p class="mt-3 text-[13.5px] text-caption max-w-prosa leading-relaxed">
+          Ao trocar de seguradora no futuro, exija a manutenção da data de retroatividade
+          original. É o item mais esquecido em renovação e o mais caro de perder.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ COBERTURA ══════════════════ -->
+<section id="cobertura" class="bg-marinho text-white scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+    <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] leading-snug max-w-prosa">
+      O que entra na apólice e o que nunca entra.
+    </h2>
+    <p class="mt-4 text-[16px] text-[#D5DDE6] max-w-prosa leading-relaxed">
+      Nenhum seguro cobre tudo. Preferimos que você saiba o limite antes de assinar,
+      e não no dia do sinistro.
+    </p>
+ 
+    <div class="mt-10 grid md:grid-cols-2 gap-10 md:gap-14">
+      <div>
+        <h3 class="font-display font-bold text-[1.3rem] text-laranja mb-4">Coberto</h3>
+        <ul class="space-y-3 text-[15px] text-[#D5DDE6]">
+          <li class="border-b border-white/10 pb-3">Indenizações por danos materiais, corporais, morais e estéticos causados a pacientes</li>
+          <li class="border-b border-white/10 pb-3">Custos de defesa: honorários advocatícios, custas processuais e perícias</li>
+          <li class="border-b border-white/10 pb-3">Atendimentos em plantão, pronto-socorro, UTI e ambulatório</li>
+          <li class="border-b border-white/10 pb-3">Defesa em processo ético-profissional no CRM</li>
+          <li class="border-b border-white/10 pb-3">Atos de terceiros sob sua supervisão, conforme cláusula contratada</li>
+          <li>Defesa criminal, disponível em parte dos produtos do painel</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-display font-bold text-[1.3rem] text-palido mb-4">Não coberto</h3>
+        <ul class="space-y-3 text-[15px] text-[#D5DDE6]">
+          <li class="border-b border-white/10 pb-3">Dolo, ou seja, ato intencional. Nenhum seguro cobre crime doloso</li>
+          <li class="border-b border-white/10 pb-3">Atendimento sem registro ativo no CRM</li>
+          <li class="border-b border-white/10 pb-3">Procedimentos fora da especialidade e do escopo declarados na proposta</li>
+          <li class="border-b border-white/10 pb-3">Multas e penalidades pessoais aplicadas pelo Conselho</li>
+          <li class="border-b border-white/10 pb-3">Fatos que você já conhecia antes de contratar</li>
+          <li>Promessa de resultado assumida por contrato ou publicidade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ SEGURADORAS ══════════════════ -->
+<section id="seguradoras" class="bg-white scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+ 
+    <div class="max-w-prosa">
+      <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug">
+        Cinco seguradoras no painel. Uma comparação feita cláusula a cláusula.
+      </h2>
+      <p class="mt-4 text-[16px] text-aco leading-relaxed">
+        Não trabalhamos com uma seguradora só, e não escolhemos pelo prêmio mais baixo.
+        Antes do preço vêm retroatividade, franquia, escopo de defesa e histórico de
+        regulação de sinistro. Abaixo, o que cada uma faz bem e onde cada uma tem limite.
+      </p>
+    </div>
+ 
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+ 
+      <article class="border border-borda rounded-lg p-6 flex flex-col">
+        <div class="flex items-center justify-between gap-3 mb-4">
+          <span class="font-display font-bold text-[1.25rem] text-marinho">Porto</span>
+          <span class="text-[11px] font-semibold text-white bg-laranja px-2.5 py-1 rounded">Melhor cobertura</span>
+        </div>
+        <p class="text-[14.5px] text-aco leading-relaxed flex-1">
+          Primeira colocada na nossa análise cláusula a cláusula, somando amplitude de
+          cobertura e qualidade de regulação de sinistro. É a referência quando o critério
+          é proteção, não prêmio.
+        </p>
+        <p class="text-[13px] text-caption mt-4 pt-4 border-t border-borda">Atenção: confirmar franquia e prêmio para o perfil em formação.</p>
+      </article>
+ 
+      <article class="border border-borda rounded-lg p-6 flex flex-col">
+        <span class="font-display font-bold text-[1.25rem] text-marinho mb-4">MAPFRE</span>
+        <p class="text-[14.5px] text-aco leading-relaxed flex-1">
+          Seguradora de grande porte, com RC Profissional consolidado no Brasil e boa
+          aceitação de recém-formados. Escopo equilibrado para clínica geral e plantão.
+        </p>
+        <p class="text-[13px] text-caption mt-4 pt-4 border-t border-borda">Atenção: verificar franquia e escopo de defesa criminal.</p>
+      </article>
+ 
+      <article class="border border-borda rounded-lg p-6 flex flex-col">
+        <span class="font-display font-bold text-[1.25rem] text-marinho mb-4">Tokio Marine</span>
+        <p class="text-[14.5px] text-aco leading-relaxed flex-1">
+          Costuma sair na frente no prêmio e, em parte das faixas, opera sem franquia —
+          o que muda o resultado prático na hora do sinistro.
+        </p>
+        <p class="text-[13px] text-caption mt-4 pt-4 border-t border-borda">Atenção: não contempla defesa criminal, danos morais puros nem função de chefe de equipe.</p>
+      </article>
+ 
+      <article class="border border-borda rounded-lg p-6 flex flex-col">
+        <span class="font-display font-bold text-[1.25rem] text-marinho mb-4">Swiss Re Corporate Solutions</span>
+        <p class="text-[14.5px] text-aco leading-relaxed flex-1">
+          Braço segurador de uma das maiores resseguradoras do mundo, com subscrição
+          técnica madura e apetite consistente para profissionais da saúde.
+        </p>
+        <p class="text-[13px] text-caption mt-4 pt-4 border-t border-borda">Atenção: não cobre ação regressiva do hospital, preceptoria, tratamento domiciliar nem ato de bom samaritano.</p>
+      </article>
+ 
+      <article class="border border-borda rounded-lg p-6 flex flex-col">
+        <span class="font-display font-bold text-[1.25rem] text-marinho mb-4">Fator</span>
+        <p class="text-[14.5px] text-aco leading-relaxed flex-1">
+          Produto desenhado para o segmento médico, com boa amplitude de cobertura em
+          relação ao preço. Desempenho forte na comparação item a item.
+        </p>
+        <p class="text-[13px] text-caption mt-4 pt-4 border-t border-borda">Atenção: não cobre cirurgia de redesignação de gênero nem tratamento de fertilidade.</p>
+      </article>
+ 
+      <!-- ⚠️ Allianz mantida fora da vitrine até confirmação de enquadramento no ramo 78 para médicos e residentes. -->
+      <article class="border border-dashed border-palido rounded-lg p-6 bg-offwhite flex flex-col justify-center">
+        <p class="text-[14.5px] text-aco leading-relaxed">
+          O painel é revisado a cada renovação de produto. Se a sua especialidade exigir
+          uma cláusula que nenhuma das cinco atende, buscamos fora do painel.
+        </p>
+      </article>
+    </div>
+ 
+    <p class="mt-8 text-[13px] text-caption max-w-prosa leading-relaxed">
+      As observações acima refletem a análise das condições vigentes na data do estudo e
+      são reconferidas contra as Condições Gerais atuais antes de cada proposta. Marcas e
+      nomes citados pertencem às respectivas seguradoras.
+    </p>
+  </div>
+</section>
+ 
+<!-- ══════════════════ MGM ══════════════════ -->
+<section id="indicacao" class="bg-offwhite border-y border-borda scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+ 
+    <div class="grid lg:grid-cols-[1fr_1fr] gap-12 items-start">
+      <div>
+        <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug">
+          Indique um colega de turma e reduza a sua próxima renovação.
+        </h2>
+        <p class="mt-4 text-[16px] text-aco leading-relaxed max-w-prosa">
+          Quem contrata recebe um código pessoal. Cada colega que usa o seu código paga
+          menos, e você acumula crédito de desconto aplicado na renovação da sua própria
+          apólice. Nada é pago em dinheiro: o benefício existe dentro do seu seguro.
+        </p>
+ 
+        <ol class="mt-8 space-y-5">
+          <li class="flex gap-4">
+            <span class="shrink-0 w-7 h-7 grid place-items-center bg-marinho text-white text-[13px] font-semibold rounded-full">1</span>
+            <p class="text-[15px] text-aco leading-relaxed"><span class="font-semibold text-marinho">Você contrata e recebe seu código.</span> Nome e dois dígitos, no formato do cupom LUIZ15.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="shrink-0 w-7 h-7 grid place-items-center bg-marinho text-white text-[13px] font-semibold rounded-full">2</span>
+            <p class="text-[15px] text-aco leading-relaxed"><span class="font-semibold text-marinho">Seu colega usa o código na cotação.</span> Ele paga R$ 1.520,00 em vez de R$ 1.830,00.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="shrink-0 w-7 h-7 grid place-items-center bg-marinho text-white text-[13px] font-semibold rounded-full">3</span>
+            <p class="text-[15px] text-aco leading-relaxed"><span class="font-semibold text-marinho">Você acumula crédito.</span> Contabilizado após a emissão da apólice e o pagamento da primeira parcela.</p>
+          </li>
+        </ol>
+      </div>
+ 
+      <div class="bg-white border border-borda rounded-xl p-6 sm:p-7">
+        <h3 class="font-display font-bold text-[1.25rem] text-marinho">Faixas do programa</h3>
+ 
+        <!-- ⚠️ PENDENTE DIRETORIA: valores exatos de crédito por faixa e formato de entrega do benefício. -->
+        <div class="mt-5 divide-y divide-borda">
+          <div class="py-4 flex gap-5">
+            <span class="font-display font-bold text-[1.6rem] text-laranja leading-none w-12 shrink-0">1–2</span>
+            <p class="text-[14.5px] text-aco leading-relaxed">Crédito de desconto aplicado na sua renovação.</p>
+          </div>
+          <div class="py-4 flex gap-5">
+            <span class="font-display font-bold text-[1.6rem] text-laranja leading-none w-12 shrink-0">3–4</span>
+            <p class="text-[14.5px] text-aco leading-relaxed">Crédito ampliado, mais revisão gratuita do seu escopo de risco com especialista.</p>
+          </div>
+          <div class="py-4 flex gap-5">
+            <span class="font-display font-bold text-[1.6rem] text-laranja leading-none w-12 shrink-0">5+</span>
+            <p class="text-[14.5px] text-aco leading-relaxed">Benefício máximo do programa na renovação e prioridade no atendimento de sinistro.</p>
+          </div>
+        </div>
+ 
+        <div class="mt-6 pt-5 border-t border-borda">
+          <h4 class="text-[14px] font-semibold text-marinho mb-2.5">Regras</h4>
+          <ul class="text-[13.5px] text-aco space-y-1.5 leading-relaxed">
+            <li>O código precisa ser informado na cotação ou no fechamento, nunca depois de emitida a proposta.</li>
+            <li>Indicação válida por 90 dias a partir do primeiro contato registrado.</li>
+            <li>Um código por contratação, não cumulativo com outras campanhas.</li>
+            <li>Sem autoindicação: não vale para o titular, cônjuge ou dependente na mesma apólice.</li>
+            <li>Código pessoal e intransferível, vinculado ao CPF do titular.</li>
+            <li>Cancelamento da apólice do indicado em até 60 dias anula o crédito.</li>
+          </ul>
+          <p class="text-[12.5px] text-caption mt-4 leading-relaxed">
+            O benefício é concedido como desconto na apólice do próprio segurado. Não se
+            trata de comissão de corretagem nem de remuneração por intermediação, atividade
+            privativa de corretor habilitado nos termos da Lei 4.594/1964.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ REGRAS DE OURO ══════════════════ -->
+<section id="regras" class="bg-white scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+ 
+    <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug max-w-prosa">
+      Regras de ouro: o que preserva a sua cobertura no dia do problema.
+    </h2>
+ 
+    <div class="mt-8 border-l-4 border-laranja bg-offwhite p-6 sm:p-7 rounded-r-lg">
+      <p class="text-[13px] font-semibold text-laranja mb-2">Alerta principal</p>
+      <h3 class="font-display font-bold text-[1.5rem] text-marinho leading-snug">
+        Nunca assuma culpa nem feche acordo sem avisar a seguradora.
+      </h3>
+      <p class="mt-3 text-[15.5px] text-aco leading-relaxed max-w-prosa">
+        O Código Civil, art. 787, § 2º, é direto: o segurado que reconhece a
+        responsabilidade, transige ou indeniza por conta própria, sem anuência do
+        segurador, perde o direito à indenização. Na prática, isso inclui dizer
+        &ldquo;foi erro meu&rdquo; à família, devolver honorários para acalmar a situação,
+        pagar do próprio bolso o tratamento corretivo ou aceitar acordo em audiência de
+        conciliação sem a seguradora notificada. O gesto bem-intencionado é a causa
+        número um de perda de cobertura.
+      </p>
+    </div>
+ 
+    <div class="mt-8 grid md:grid-cols-2 gap-x-10 gap-y-7">
+      <div class="border-t border-borda pt-5">
+        <h3 class="font-semibold text-[16px] text-marinho">Avise cedo demais, nunca tarde demais</h3>
+        <p class="text-[14.5px] text-aco mt-2 leading-relaxed">
+          Comunique ao tomar ciência de citação, notificação extrajudicial, reclamação
+          verbal, sindicância no CRM, reclamação em ouvidoria ou pedido de prontuário
+          feito por advogado. Circunstância também se avisa: comunicar dentro da vigência
+          garante cobertura para a reclamação que nascer dela depois. Código Civil, art. 771.
+        </p>
+      </div>
+ 
+      <div class="border-t border-borda pt-5">
+        <h3 class="font-semibold text-[16px] text-marinho">Prontuário é a defesa</h3>
+        <p class="text-[14.5px] text-aco mt-2 leading-relaxed">
+          Registre na hora, incluindo o que não foi feito e por quê: recusa do paciente,
+          alta a pedido, retorno não comparecido. Correção se faz com nova anotação datada,
+          jamais apagando. Guarda mínima de 20 anos a partir do último registro, conforme
+          a Lei 13.787/2018. Alterar prontuário depois de saber da reclamação anula tudo.
+        </p>
+      </div>
+ 
+      <div class="border-t border-borda pt-5">
+        <h3 class="font-semibold text-[16px] text-marinho">Consentimento por escrito, sem promessa de resultado</h3>
+        <p class="text-[14.5px] text-aco mt-2 leading-relaxed">
+          Use termo específico por procedimento, explique verbalmente e registre no
+          prontuário que explicou. A medicina é obrigação de meio. Prometer resultado,
+          em consulta ou em rede social, transforma a obrigação em resultado e amplia
+          drasticamente a exposição.
+        </p>
+      </div>
+ 
+      <div class="border-t border-borda pt-5">
+        <h3 class="font-semibold text-[16px] text-marinho">Mantenha a apólice viva e o escopo atualizado</h3>
+        <p class="text-[14.5px] text-aco mt-2 leading-relaxed">
+          Deixar o seguro vencer derruba a proteção sobre todo o passado. E avise a
+          corretora antes de iniciar nova especialidade, procedimentos invasivos ou
+          estéticos, telemedicina, preceptoria, chefia de equipe ou atendimento por PJ.
+          Declaração desatualizada compromete a garantia, conforme os arts. 766, 768 e
+          769 do Código Civil.
+        </p>
+      </div>
+    </div>
+ 
+    <div class="mt-10 bg-marinho text-white rounded-xl p-6 sm:p-8">
+      <h3 class="font-display font-bold text-[1.35rem]">Aconteceu alguma coisa: as primeiras 24 horas</h3>
+      <ol class="mt-5 grid sm:grid-cols-2 lg:grid-cols-5 gap-5 text-[14px] text-[#D5DDE6]">
+        <li><span class="block font-semibold text-laranja mb-1">1</span>Não assuma culpa, não faça acordo, não pague nada.</li>
+        <li><span class="block font-semibold text-laranja mb-1">2</span>Preserve prontuário e documentos, sem alterar nada.</li>
+        <li><span class="block font-semibold text-laranja mb-1">3</span>Registre sua versão dos fatos em documento datado.</li>
+        <li><span class="block font-semibold text-laranja mb-1">4</span>Ligue para a corretora no (67) 99625-2382.</li>
+        <li><span class="block font-semibold text-laranja mb-1">5</span>Aguarde a nomeação do advogado pela seguradora.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ FAQ ══════════════════ -->
+<section id="faq" class="bg-offwhite border-t border-borda scroll-mt-20">
+  <div class="max-w-4xl mx-auto px-5 py-16 md:py-20">
+    <h2 class="font-display font-bold text-[1.9rem] md:text-[2.3rem] text-marinho leading-snug">
+      Perguntas que todo mundo faz antes de contratar.
+    </h2>
+ 
+    <div class="mt-9 divide-y divide-borda border-t border-b border-borda" id="faq-lista">
+ 
+      <div class="faq-item" data-aberto="false">
+        <button class="w-full flex items-start justify-between gap-6 text-left py-5" aria-expanded="false">
+          <span class="font-semibold text-[16.5px] text-marinho leading-snug">Sou residente e ainda não faço nada de risco. Não posso deixar para depois?</span>
+          <span class="faq-sinal shrink-0 text-laranja text-[22px] leading-none mt-0.5">+</span>
+        </button>
+        <div class="faq-corpo"><div><p class="text-[15px] text-aco leading-relaxed pb-6 max-w-prosa">
+          Residente atende exatamente onde o risco é mais alto: pronto-socorro cheio,
+          plantão de 24 horas, UTI, decisão rápida com pouca informação e paciente
+          desconhecido. O processo raramente nasce no consultório calmo com hora marcada.
+          E há o problema maior: contratando daqui a cinco anos, esses cinco anos de
+          plantão ficam sem cobertura para sempre, enquanto o paciente ainda tem prazo
+          para acionar.
+        </p></div></div>
+      </div>
+ 
+      <div class="faq-item" data-aberto="false">
+        <button class="w-full flex items-start justify-between gap-6 text-left py-5" aria-expanded="false">
+          <span class="font-semibold text-[16.5px] text-marinho leading-snug">Está caro. Ganho pouco na residência.</span>
+          <span class="faq-sinal shrink-0 text-laranja text-[22px] leading-none mt-0.5">+</span>
+        </button>
+        <div class="faq-corpo"><div><p class="text-[15px] text-aco leading-relaxed pb-6 max-w-prosa">
+          Com o cupom, R$ 1.520,00 no ano, o equivalente a R$ 4,16 por dia. Do outro lado
+          da conta estão advogado particular, honorários periciais, custas e, em caso de
+          condenação, indenização por danos morais, materiais e estéticos, que em ações
+          contra médicos passam de R$ 100.000,00 com frequência. A pergunta certa não é
+          se cabe no orçamento, e sim se você teria o valor da defesa disponível caso a
+          citação chegasse amanhã.
+        </p></div></div>
+      </div>
+ 
+      <div class="faq-item" data-aberto="false">
+        <button class="w-full flex items-start justify-between gap-6 text-left py-5" aria-expanded="false">
+          <span class="font-semibold text-[16.5px] text-marinho leading-snug">O hospital onde trabalho já tem seguro. Não estou coberto?</span>
+          <span class="faq-sinal shrink-0 text-laranja text-[22px] leading-none mt-0.5">+</span>
+        </button>
+        <div class="faq-corpo"><div><p class="text-[15px] text-aco leading-relaxed pb-6 max-w-prosa">
+          A apólice do hospital protege o hospital, não você: o segurado é a instituição,
+          e o advogado responde a ela. Existe ainda a ação regressiva — o CDC fixa
+          responsabilidade objetiva para a instituição e subjetiva para o profissional
+          liberal, de modo que o hospital pode pagar e depois cobrar de você. E a cobertura
+          termina junto com o vínculo: se você sai em dezembro e a ação sobre um atendimento
+          de agosto chega em março, não há mais apólice atrás de você. Pergunte ao hospital
+          se a apólice cobre ação regressiva contra o médico.
+        </p></div></div>
+      </div>
+ 
+      <div class="faq-item" data-aberto="false">
+        <button class="w-full flex items-start justify-between gap-6 text-left py-5" aria-expanded="false">
+          <span class="font-semibold text-[16.5px] text-marinho leading-snug">Ter seguro não me torna alvo mais fácil de processo?</span>
+          <span class="faq-sinal shrink-0 text-laranja text-[22px] leading-none mt-0.5">+</span>
+        </button>
+        <div class="faq-corpo"><div><p class="text-[15px] text-aco leading-relaxed pb-6 max-w-prosa">
+          A apólice não é pública. Não consta no CRM, não aparece em consulta processual e
+          não é divulgada ao paciente. Ela só entra no processo quando a sua própria defesa
+          chama a seguradora à lide. O gatilho de uma ação por erro médico é quase sempre
+          falha de comunicação e de registro, não a existência de seguro. Seguro não atrai
+          processo: ele define o que acontece com você depois que o processo chega.
+        </p></div></div>
+      </div>
+ 
+      <div class="faq-item" data-aberto="false">
+        <button class="w-full flex items-start justify-between gap-6 text-left py-5" aria-expanded="false">
+          <span class="font-semibold text-[16.5px] text-marinho leading-snug">E se, na hora de precisar, a seguradora negar?</span>
+          <span class="faq-sinal shrink-0 text-laranja text-[22px] leading-none mt-0.5">+</span>
+        </button>
+        <div class="faq-corpo"><div><p class="text-[15px] text-aco leading-relaxed pb-6 max-w-prosa">
+          Negativa em RC Médico cai quase sempre em uma de quatro causas, e todas são
+          evitáveis: o médico assumiu culpa ou fechou acordo sozinho; avisou tarde, com o
+          processo já avançado; declarou escopo diferente do que pratica; ou o fato já era
+          conhecido antes da contratação. Nenhuma delas é letra miúda escondida. São regras
+          objetivas, e é por isso que você recebe as Regras de Ouro junto com a apólice —
+          e um interlocutor que aciona a seguradora no momento certo.
+        </p></div></div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ CTA FINAL ══════════════════ -->
+<section class="bg-laranja text-white">
+  <div class="max-w-4xl mx-auto px-5 py-16 md:py-20 text-center">
+    <h2 class="font-display font-black text-[2rem] md:text-[2.6rem] leading-tight">
+      Sua retroatividade começa no dia em que você contrata.
+    </h2>
+    <p class="mt-4 text-[17px] text-white/90 max-w-prosa mx-auto leading-relaxed">
+      Não existe forma de comprar esse tempo de volta depois. Faça a cotação hoje e
+      trave a data a seu favor.
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#cotar" class="bg-white text-marinho font-semibold text-[16px] px-8 py-3.5 rounded-md hover:bg-offwhite">
+        Fazer minha cotação
+      </a>
+      <a id="link-whats" href="https://wa.me/5567996252382" target="_blank" rel="noopener" class="border border-white/70 text-white font-semibold text-[16px] px-8 py-3.5 rounded-md hover:bg-white/10">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ RODAPÉ ══════════════════ -->
+<footer class="bg-marinho text-[#C4CEDA]">
+  <div class="max-w-6xl mx-auto px-5 py-14">
+    <div class="grid md:grid-cols-[1.2fr_1fr_1fr] gap-10">
+ 
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <span class="w-9 h-9 grid place-items-center bg-white text-marinho font-display font-bold text-sm rounded-sm">CM</span>
+          <span class="font-display font-bold text-white text-[15px]">Chiare &amp; Mendes</span>
+        </div>
+        <p class="text-[13.5px] leading-relaxed">
+          Chiare &amp; Mendes Corretora de Seguros<br>
+          CNPJ 37.063.239/0001-10 &middot; SUSEP 202030976
+        </p>
+        <p class="text-[13.5px] leading-relaxed mt-3">
+          R. Hilda Bergo Duarte, 850, Sala 02<br>
+          Vila Planalto, Dourados/MS, 79806-020
+        </p>
+      </div>
+ 
+      <div>
+        <h3 class="text-white font-semibold text-[14px] mb-3">Contato</h3>
+        <ul class="text-[13.5px] space-y-2">
+          <li><a class="hover:text-laranja" href="tel:+556734216759">(67) 3421-6759</a></li>
+          <li><a class="hover:text-laranja" href="https://wa.me/5567996252382" target="_blank" rel="noopener">WhatsApp (67) 99625-2382</a></li>
+          <li><a class="hover:text-laranja" href="https://www.chiaremendes.com.br" target="_blank" rel="noopener">chiaremendes.com.br</a></li>
+        </ul>
+      </div>
+ 
+      <div>
+        <h3 class="text-white font-semibold text-[14px] mb-3">Nesta página</h3>
+        <ul class="text-[13.5px] space-y-2">
+          <li><a class="hover:text-laranja" href="#linha-do-tempo">Retroatividade</a></li>
+          <li><a class="hover:text-laranja" href="#seguradoras">Seguradoras do painel</a></li>
+          <li><a class="hover:text-laranja" href="#indicacao">Indique um colega</a></li>
+          <li><a class="hover:text-laranja" href="#regras">Regras de ouro</a></li>
+        </ul>
+      </div>
+    </div>
+ 
+    <div class="mt-10 pt-7 border-t border-white/15 text-[12px] leading-relaxed text-palido space-y-2">
+      <p>
+        Os valores apresentados são de referência para o perfil de médico recém-formado e
+        residente, sujeitos a aceitação e análise técnica da seguradora, e não constituem
+        proposta ou garantia de contratação. As coberturas, exclusões, franquias, data de
+        retroatividade e prazo complementar são as previstas nas Condições Gerais e na
+        apólice emitida, documentos que prevalecem sobre qualquer informação desta página.
+      </p>
+      <p>
+        O seguro é intermediado por corretora habilitada na SUSEP. O programa de indicação
+        concede desconto na apólice do próprio segurado e não constitui comissão de
+        corretagem nem remuneração por intermediação, atividade privativa de corretor
+        habilitado nos termos da Lei 4.594/1964.
+      </p>
+      <p>Dados tratados conforme a Lei 13.709/2018 (LGPD). &copy; <span id="ano"></span> Chiare &amp; Mendes Corretora de Seguros.</p>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+(function () {
+  'use strict';
+ 
+  var PRECO_CHEIO = 1830;
+  var PRECO_CUPOM = 1520;
+  var CUPOM = 'LUIZ15';
+  var WHATS = '5567996252382';
+ 
+  var brl = function (v) {
+    return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  };
+  var $ = function (s) { return document.querySelector(s); };
+ 
+  document.getElementById('ano').textContent = new Date().getFullYear();
+ 
+  /* ── Menu mobile ── */
+  var btnMenu = $('#btn-menu'), menu = $('#menu-mobile');
+  btnMenu.addEventListener('click', function () {
+    var aberto = menu.classList.toggle('hidden') === false;
+    btnMenu.setAttribute('aria-expanded', String(aberto));
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.add('hidden');
+      btnMenu.setAttribute('aria-expanded', 'false');
+    });
+  });
+ 
+  /* ── Estado da cotação ── */
+  var estado = { cupomValido: false, faixa: '' };
+ 
+  var elFaixa = $('#linha-faixa');
+  var elBloco = $('#bloco-preco');
+  var elCheio = $('#preco-cheio');
+  var elFinal = $('#preco-final');
+  var elEcon  = $('#linha-economia');
+ 
+  function renderizar() {
+    if (!estado.faixa) {
+      elFaixa.textContent = 'Selecione a especialidade para ver o valor de referência.';
+      elBloco.classList.add('hidden');
+      return;
+    }
+ 
+    if (estado.faixa === 'analise') {
+      elFaixa.innerHTML = 'Esta especialidade exige análise técnica individual. O valor de referência abaixo não se aplica — vamos cotar com as seguradoras do painel e retornar com números reais.';
+      elBloco.classList.add('hidden');
+      return;
+    }
+ 
+    elFaixa.textContent = 'Valor de referência para o seu perfil:';
+    elBloco.classList.remove('hidden');
+ 
+    if (estado.cupomValido) {
+      elCheio.classList.remove('hidden');
+      elFinal.textContent = brl(PRECO_CUPOM);
+      elEcon.textContent = 'Você economiza ' + brl(PRECO_CHEIO - PRECO_CUPOM) + ' com o cupom ' + CUPOM + '.';
+      elEcon.classList.remove('hidden');
+    } else {
+      elCheio.classList.add('hidden');
+      elFinal.textContent = brl(PRECO_CHEIO);
+      elEcon.classList.add('hidden');
+    }
+  }
+ 
+  /* ── Especialidade ── */
+  var selEsp = $('#especialidade');
+  selEsp.addEventListener('change', function () {
+    var op = selEsp.options[selEsp.selectedIndex];
+    estado.faixa = op ? (op.getAttribute('data-faixa') || '') : '';
+    renderizar();
+  });
+ 
+  /* ── Cupom ── */
+  var inCupom = $('#cupom'), msgCupom = $('#msg-cupom');
+ 
+  function aplicarCupom() {
+    var v = inCupom.value.trim().toUpperCase();
+    inCupom.value = v;
+    msgCupom.classList.remove('hidden');
+ 
+    if (!v) {
+      estado.cupomValido = false;
+      msgCupom.textContent = 'Digite um cupom para aplicar.';
+      msgCupom.className = 'text-[13px] mt-2 text-aco';
+    } else if (v === CUPOM) {
+      estado.cupomValido = true;
+      msgCupom.textContent = 'Cupom aplicado. ' + brl(PRECO_CHEIO - PRECO_CUPOM) + ' de desconto no valor anual.';
+      msgCupom.className = 'text-[13px] mt-2 text-laranja font-semibold';
+    } else {
+      estado.cupomValido = false;
+      msgCupom.textContent = 'Cupom não reconhecido. Confira o código com quem indicou você.';
+      msgCupom.className = 'text-[13px] mt-2 text-[#B3261E] font-medium';
+    }
+    renderizar();
+  }
+ 
+  $('#btn-cupom').addEventListener('click', aplicarCupom);
+  inCupom.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); aplicarCupom(); }
+  });
+ 
+  /* ── Máscara de telefone ── */
+  var inTel = $('#telefone');
+  inTel.addEventListener('input', function () {
+    var d = inTel.value.replace(/\D/g, '').slice(0, 11);
+    if (d.length > 6) {
+      inTel.value = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length === 11 ? 7 : 6) + '-' + d.slice(d.length === 11 ? 7 : 6);
+    } else if (d.length > 2) {
+      inTel.value = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    } else {
+      inTel.value = d;
+    }
+  });
+ 
+  /* ── Linha do tempo da retroatividade ── */
+  var anoAtual = new Date().getFullYear();
+  var selAno = $('#ano-crm');
+ 
+  for (var a = anoAtual; a >= anoAtual - 20; a--) {
+    var op = document.createElement('option');
+    op.value = String(a);
+    op.textContent = a === anoAtual ? a + ' (este ano)' : String(a);
+    selAno.appendChild(op);
+  }
+  selAno.value = String(anoAtual - 3);
+ 
+  function renderLinha() {
+    var ano = parseInt(selAno.value, 10);
+    var descobertos = Math.max(0, anoAtual - ano);
+    var futuro = 10;
+    var pct = Math.round((descobertos / (descobertos + futuro)) * 100);
+ 
+    $('#faixa-descoberta').style.width = pct + '%';
+    $('#rot-inicio').textContent = String(ano);
+    $('#rot-fim').textContent = (anoAtual + futuro) + '';
+ 
+    var texto;
+    if (descobertos === 0) {
+      texto = 'Você está no melhor cenário possível: contratando agora, praticamente toda a sua atuação nasce dentro da apólice.';
+    } else if (descobertos === 1) {
+      texto = 'Cerca de 1 ano de atendimentos ficaria permanentemente fora da apólice. Cada mês de espera aumenta essa faixa.';
+    } else {
+      texto = 'Cerca de ' + descobertos + ' anos de atendimentos ficariam permanentemente fora da apólice. Esse período não volta, e o paciente ainda tem prazo para acionar.';
+    }
+    $('#texto-gap').textContent = texto;
+    $('#barra-descricao').setAttribute('aria-label',
+      'Linha do tempo: ' + descobertos + ' anos sem cobertura antes da contratação e cobertura a partir de hoje.');
+  }
+ 
+  selAno.addEventListener('change', renderLinha);
+  renderLinha();
+ 
+  /* ── Acordeão do FAQ ── */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var btn = item.querySelector('button');
+    btn.addEventListener('click', function () {
+      var aberto = item.getAttribute('data-aberto') === 'true';
+      item.setAttribute('data-aberto', String(!aberto));
+      btn.setAttribute('aria-expanded', String(!aberto));
+    });
+  });
+ 
+  /* ── Envio do formulário ──
+     ⚠️ INTEGRAÇÃO: hoje o lead abre uma conversa pré-preenchida no WhatsApp.
+     Para registrar no CRM, trocar o bloco abaixo por um fetch() para o webhook
+     interno e manter o redirecionamento como confirmação ao usuário. */
+  var form = $('#form-cotacao'), erro = $('#erro-form');
+ 
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+ 
+    var nome = $('#nome').value.trim();
+    var tel  = $('#telefone').value.trim();
+    var mail = $('#email').value.trim();
+    var esp  = selEsp.value;
+    var ok   = $('#lgpd').checked;
+ 
+    var faltando = [];
+    if (!nome) faltando.push('nome');
+    if (tel.replace(/\D/g, '').length < 10) faltando.push('WhatsApp com DDD');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) faltando.push('e-mail válido');
+    if (!esp) faltando.push('especialidade');
+    if (!ok) faltando.push('autorização de contato');
+ 
+    if (faltando.length) {
+      erro.textContent = 'Falta preencher: ' + faltando.join(', ') + '.';
+      erro.classList.remove('hidden');
+      return;
+    }
+    erro.classList.add('hidden');
+ 
+    var linhas = [
+      'Olá! Quero uma cotação do seguro de RC Médica.',
+      '',
+      'Nome: ' + nome,
+      'WhatsApp: ' + tel,
+      'E-mail: ' + mail,
+      'CRM: ' + ($('#crm').value.trim() || 'ainda não informado') + ' / ' + ($('#uf').value || '—'),
+      'Especialidade: ' + esp,
+      'Cupom: ' + (estado.cupomValido ? CUPOM + ' (aplicado)' : (inCupom.value.trim() || 'nenhum'))
+    ];
+ 
+    if (estado.faixa === 'ref') {
+      linhas.push('Valor de referência exibido: ' + brl(estado.cupomValido ? PRECO_CUPOM : PRECO_CHEIO) + '/ano');
+    } else if (estado.faixa === 'analise') {
+      linhas.push('Perfil que exige análise técnica individual.');
+    }
+ 
+    window.open('https://wa.me/' + WHATS + '?text=' + encodeURIComponent(linhas.join('\n')), '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
+ 
